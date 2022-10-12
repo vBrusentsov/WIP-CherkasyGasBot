@@ -22,5 +22,6 @@ class ConsumersService {
     }
 }
 
-module.exports = new ConsumersService()
-
+module.exports =  {
+    ConsumersService
+}

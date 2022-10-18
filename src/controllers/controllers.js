@@ -1,5 +1,4 @@
-const referenceToTheDatabase = require('../services/serviсe');
-
+const referenceToTheDatabase = require('../services/сonsumers.service');
 
 
 
@@ -12,7 +11,7 @@ async function  postPersonalAccount (conversation, ctx, next) {
           const sentDate = (Date(ctx.msg.date));
           console.log(sentDate)
           console.log(personalAccount);
-          referenceToTheDatabase.checkPersonalAccountInTableDatabase(personalAccount)
+          console.log(referenceToTheDatabase.findPersonalAccount(personalAccount))
 
       } else {
         await ctx.reply('Ви ввели невірний особовий рахунок');

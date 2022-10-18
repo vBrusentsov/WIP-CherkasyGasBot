@@ -5,29 +5,24 @@ dotenv.config();
 const {
     consumersConversation,
 } = require('./conversation/consumers.conversation')
-
 const {
     conversations,
     createConversation,
 } = require("@grammyjs/conversations");
-
-
 const { DatabaseService } = require('./services/database.service');
 const { ConsumersService } = require('./services/сonsumers.service');
 
 (async () => {
-
     const bot = new Bot(process.env.BOT_TOKEN);
     const databaseService = new DatabaseService();
     await databaseService.init();
-
     const consumersService = new ConsumersService(databaseService);
+    console.log(consumersService);
+
 
     bot.use(session({ initial: () => ({}) }))
-    bot.use(conversations(consumersConversation(consumersService)));
-
-    bot.use(createConversation(consumersConversation));
-
+    bot.use(conversations());
+    bot.use(createConversation(consumersConversation(consumersService)));
 
     bot.command('start', async  (ctx) => {
         await ctx.reply(`Добрий день ${ctx.msg.chat.first_name} ${ctx.msg.chat.last_name}.
@@ -35,24 +30,9 @@ const { ConsumersService } = require('./services/сonsumers.service');
 Для передачі показників лічильника введіть команду \/postPersonalAccount`)
 
     })
-
-// bot.command('getinfo', (ctx) => {
-//     connection.query('SELECT * FROM consumers', (err, result, fields)=> {
-//         if(!err) {
-//             ctx.reply(result[0])
-//         } else {
-//             console.log(err);
-//         }
-//     })
-// })
-//
     bot.command('postPersonalAccount', async (ctx) => {
         await ctx.conversation.enter('consumersConversation')
     })
-
-// bot.command('postCounterIndicator', async (ctx) => {
-//     await ctx.conversation.enter('postCounterIndicator')
-// })
 
 
     bot.start();

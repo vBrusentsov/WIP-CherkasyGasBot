@@ -1,6 +1,6 @@
 
 
-let consumersConversation = async(queryToDatabase) => {
+let consumersConversation = (consumersService) => {
      return async (conversation, ctx) => {
 
         await ctx.reply('Введіть ваш особовий рахунок');
@@ -10,7 +10,7 @@ let consumersConversation = async(queryToDatabase) => {
             await ctx.reply(` Ваш особовий рахунок ${personalAccount}`);
             const sentDate = (Date(ctx.msg.date));
             console.log(sentDate)
-            return queryToDatabase.findAccount(personalAccount);
+            return consumersService.findAccount(personalAccount);
         } else {
             await ctx.reply('Ви ввели невірний особовий рахунок');
             return
@@ -31,5 +31,6 @@ let consumersConversation = async(queryToDatabase) => {
 }
 
 
-module.exports = consumersConversation
-
+module.exports ={
+    consumersConversation
+}

@@ -1,28 +1,32 @@
-const dotenv = require('dotenv');
 const { Bot, session } = require('grammy');
+const dotenv = require('dotenv');
 dotenv.config();
 // const { Menu } = require('@grammyjs/menu');
 const {
-    postPersonalAccount,
-} = require('./controllers/controllers')
+    consumersConversation,
+} = require('./conversation/consumers.conversation')
 
 const {
     conversations,
     createConversation,
 } = require("@grammyjs/conversations");
 
-const bot = new Bot(process.env.BOT_TOKEN);
-const { СonnectionDatabaseService } = require('./services/database.service');
-const  ConsumersService = require('./services/сonsumers.service');
+
+const { DatabaseService } = require('./services/database.service');
+const { ConsumersService } = require('./services/сonsumers.service');
 
 (async () => {
-    const connectToDatabase = new СonnectionDatabaseService();
-    await connectToDatabase.init();
+
+    const bot = new Bot(process.env.BOT_TOKEN);
+    const databaseService = new DatabaseService();
+    await databaseService.init();
+
+    const consumersService = new ConsumersService(databaseService);
 
     bot.use(session({ initial: () => ({}) }))
-    bot.use(conversations());
+    bot.use(conversations(consumersConversation(consumersService)));
 
-    bot.use(createConversation(postPersonalAccount));
+    bot.use(createConversation(consumersConversation));
 
 
     bot.command('start', async  (ctx) => {
@@ -43,7 +47,7 @@ const  ConsumersService = require('./services/сonsumers.service');
 // })
 //
     bot.command('postPersonalAccount', async (ctx) => {
-        await ctx.conversation.enter('postPersonalAccount')
+        await ctx.conversation.enter('consumersConversation')
     })
 
 // bot.command('postCounterIndicator', async (ctx) => {

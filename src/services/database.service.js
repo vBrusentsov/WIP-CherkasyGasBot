@@ -1,6 +1,6 @@
 const mysql2 = require('mysql2/promise');
 
-class ConnectionDatabaseService {
+class DatabaseService {
     async init () {
         this.connection = await mysql2.createConnection({
             host: process.env.DB_HOST,
@@ -13,7 +13,7 @@ class ConnectionDatabaseService {
 }
 
 module.exports = {
-    ConnectionDatabaseService
+    DatabaseService
 }
 
 

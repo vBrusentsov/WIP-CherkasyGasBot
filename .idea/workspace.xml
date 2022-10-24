@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e36bf30e-9911-4057-ba0f-1dcf95471f0c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="e36bf30e-9911-4057-ba0f-1dcf95471f0c" name="Changes" comment="feat: add linters">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conversation/consumers.conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/conversation/consumers.conversation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/database.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/database.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/сonsumers.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/сonsumers.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +22,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="tsconfig.json" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
   </component>
   <component name="MarkdownSettingsMigration">
@@ -34,22 +48,34 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.15.1&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.11.60&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/PROJECTS/TelegramBotForRequestIndicators&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/PROJECTS/TelegramBotForRequestIndicators/.eslintrc.json&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;E:\\PROJECTS\\TelegramBotForRequestIndicators\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1.3\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\PROJECTS\TelegramBotForRequestIndicators\src\conversation" />
+      <recent name="E:\PROJECTS\TelegramBotForRequestIndicators\src\services" />
       <recent name="E:\PROJECTS\TelegramBotForRequestIndicators\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.index.js">
+    <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/index.js" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/../../Users/Arconiel/Downloads/Telegram Desktop/test.js" working-dir="$PROJECT_DIR$/../../Users/Arconiel/Downloads/Telegram Desktop">
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -62,6 +88,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.index.js" />
+        <item itemvalue="Node.js.test.js" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -88,8 +116,70 @@
       <workItem from="1664860191919" duration="13649000" />
       <workItem from="1664945722966" duration="2861000" />
       <workItem from="1664949857681" duration="129000" />
-      <workItem from="1664950006062" duration="632000" />
+      <workItem from="1664950006062" duration="14801000" />
+      <workItem from="1665035234270" duration="5340000" />
+      <workItem from="1665118314152" duration="7016000" />
+      <workItem from="1665395748543" duration="3985000" />
+      <workItem from="1665464124393" duration="16306000" />
+      <workItem from="1665550471810" duration="15767000" />
+      <workItem from="1665637049111" duration="14275000" />
+      <workItem from="1665667078545" duration="683000" />
+      <workItem from="1665724556200" duration="7108000" />
+      <workItem from="1665986237204" duration="8519000" />
+      <workItem from="1666070700347" duration="15045000" />
+      <workItem from="1666096247197" duration="4401000" />
+      <workItem from="1666156980097" duration="5946000" />
+      <workItem from="1666334492913" duration="8610000" />
+      <workItem from="1666588771649" duration="1354000" />
+      <workItem from="1666591151589" duration="584000" />
+      <workItem from="1666591760326" duration="1910000" />
+      <workItem from="1666593704010" duration="4972000" />
+      <workItem from="1666598734222" duration="5024000" />
+      <workItem from="1666607755494" duration="811000" />
     </task>
+    <task id="LOCAL-00001" summary="create telegram bot with the acceptance of a personal account">
+      <created>1664951134231</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664951134231</updated>
+    </task>
+    <task id="LOCAL-00002" summary="usage dependency injection">
+      <created>1665580021734</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665580021734</updated>
+    </task>
+    <task id="LOCAL-00003" summary="fix:  fixed module.exports">
+      <created>1665586377063</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665586377063</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: correct renaming files, folders,  variable, and class">
+      <created>1666095836130</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666095836130</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix: correct renaming files, folders,  variable, and class">
+      <created>1666099509857</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666099509857</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: add linters">
+      <created>1666610585642</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666610585642</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,23 +199,34 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="create telegram bot with the acceptance of a personal account" />
+    <MESSAGE value="usage dependency injection" />
+    <MESSAGE value="fix:  fixed module.exports" />
+    <MESSAGE value="fix: correct renaming files, folders,  variable, and class" />
+    <MESSAGE value="feat: add linters" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add linters" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/index.js</url>
-          <line>25</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/Controllers/controllers.js</url>
-          <line>5</line>
+          <url>file://$PROJECT_DIR$/src/conversation/consumers.conversation.js</url>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/index.js</url>
-          <line>42</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/../../Users/Arconiel/Downloads/Telegram Desktop/test.js</url>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../../Users/Arconiel/Downloads/Telegram Desktop/test.js</url>
+          <line>62</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../../Users/Arconiel/Downloads/Telegram Desktop/test.js</url>
+          <line>60</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -136,5 +237,9 @@
         <watch expression="ctx" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

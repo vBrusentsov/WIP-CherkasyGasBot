@@ -4,7 +4,10 @@ class ConsumersService {
   }
 
   async findAccount(personalAccount) {
-    const [rows] = await this.connectToDatabase.connection.query('SELECT * FROM consumers WHERE personal_account = ?', [personalAccount]);
+    const [rows] = await this.connectToDatabase.connection.query(
+      "SELECT * FROM consumers WHERE personal_account = ?",
+      [personalAccount]
+    );
     return rows;
   }
 }

@@ -12,18 +12,32 @@ const {
 } = require("./conversation/consumers.conversation");
 const { DatabaseService } = require("./services/database.service");
 const { ConsumersService } = require("./services/сonsumers.service");
+const { RecordsService } = require("./services/records.service");
 
 (async () => {
   const bot = new Bot(process.env.BOT_TOKEN);
-  const databaseService = new DatabaseService();
-  await databaseService.init();
-  const consumersService = new ConsumersService(databaseService);
+  const consumersDatabaseService = new DatabaseService({
+    host: process.env.Consumers_HOST,
+    user: process.env.Consumers_USER,
+    password: process.env.Consumers_PASSWORD,
+    database: process.env.Consumers_DATABASE,
+  });
+  const recordsDatabaseService = new DatabaseService({
+    host: process.env.Records_HOST,
+    user: process.env.Records_USER,
+    password: process.env.Records_PASSWORD,
+    database: process.env.Records_DATABASE,
+  });
+
+  await consumersDatabaseService.init();
+  const consumersService = new ConsumersService(consumersDatabaseService);
+  const recordsService = new RecordsService(recordsDatabaseService);
 
   bot.use(session({ initial: () => ({}) }));
   bot.use(conversations());
   bot.use(
     createConversation(
-      consumersConversation(consumersService),
+      consumersConversation(consumersService, recordsService),
       "consumersConversationID"
     )
   );

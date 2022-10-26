@@ -30,6 +30,7 @@ const { RecordsService } = require("./services/records.service");
   });
 
   await consumersDatabaseService.init();
+  await recordsDatabaseService.init();
   const consumersService = new ConsumersService(consumersDatabaseService);
   const recordsService = new RecordsService(recordsDatabaseService);
 

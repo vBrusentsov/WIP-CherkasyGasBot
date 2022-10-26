@@ -1,10 +1,10 @@
 class ConsumersService {
   constructor(connectionDatabase) {
-    this.connectToDatabase = connectionDatabase;
+    this.consumersDatabase = connectionDatabase.connection;
   }
 
   async findAccount(personalAccount) {
-    const [rows] = await this.connectToDatabase.connection.query(
+    const [rows] = await this.consumersDatabase.query(
       "SELECT * FROM consumers WHERE personal_account = ?",
       [personalAccount]
     );

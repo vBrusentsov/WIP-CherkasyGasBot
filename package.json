@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "@grammyjs/conversations": "^1.0.3",
+    "@grammyjs/storage-free": "^2.0.0",
     "dotenv": "^16.0.3",
     "grammy": "^1.11.1",
     "mysql2": "^2.3.3",

@@ -1,27 +1,40 @@
+/* eslint no-param-reassign: ["error", { "props": false }] */
+
 const consumersConversation =
   (consumersService, recordsService) => async (conversation, ctx) => {
     try {
-      await ctx.reply("Введіть ваш особовий рахунок");
-      const { message } = await conversation.wait();
-      const personalAccount = message.text;
-      const consumerAccount = await consumersService.findAccount(
-        personalAccount
-      );
-      const recordsAccount = await recordsService.findAccount(personalAccount);
-      if (
-        !Number.isNaN(personalAccount) &&
-        personalAccount.length > 8 &&
-        personalAccount.length < 11 &&
-        consumerAccount[0] !== undefined
-      ) {
-        await ctx.reply(` Ваш особовий рахунок ${personalAccount}`);
-        ctx.session.personalAccountID = personalAccount;
-        console.log(ctx.session.personalAccountID);
-      } else {
-        await ctx.reply("Ви ввели невірний особовий рахунок");
-        return;
+      if (conversation.session.personalAccountID === 0) {
+        await ctx.reply("Введіть ваш особовий рахунок");
+        const { message } = await conversation.wait();
+        const personalAccount = message.text;
+        const consumerAccount = await consumersService.findAccount(
+          personalAccount
+        );
+        console.log(personalAccount);
+        if (
+          !Number.isNaN(personalAccount) &&
+          personalAccount.length > 8 &&
+          personalAccount.length < 11 &&
+          consumerAccount[0] !== undefined
+        ) {
+          await ctx.reply(` Ваш особовий рахунок ${personalAccount}`);
+          conversation.session.personalAccountID = personalAccount;
+          console.log(conversation.session.personalAccountID);
+        } else {
+          await ctx.reply("Ви ввели невірний особовий рахунок");
+          return;
+        }
       }
-      await ctx.reply("Введіть ваш показник");
+      // eslint-disable-next-line no-unreachable
+      const recordsAccount = await recordsService.findAccount(
+        conversation.session.personalAccountID
+      );
+      const consumerAccount = await consumersService.findAccount(
+        conversation.session.personalAccountID
+      );
+      await ctx.reply(
+        `Введіть ваш показник. Ваш попередній показник ${consumerAccount[0].counter_readings}`
+      );
       const number = await conversation.wait();
       const counterReading = number.update.message.text;
       const sentDate = Date(ctx.msg.date).toString().slice(0, 24);
@@ -38,13 +51,13 @@ const consumersConversation =
       }
       if (recordsAccount[0] === undefined) {
         await recordsService.insertIntoRecords(
-          +personalAccount,
+          +conversation.session.personalAccountID,
           counterReading,
           sentDate
         );
       } else {
         await recordsService.updateRecords(
-          personalAccount,
+          +conversation.session.personalAccountID,
           counterReading,
           sentDate
         );

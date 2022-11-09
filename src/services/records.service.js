@@ -12,16 +12,22 @@ class RecordsService {
   }
 
   async insertIntoRecords(personalAccount, counterReading, sentData) {
-    await this.recordsDatebase.query(
-      "INSERT INTO records(personal_account = ?, counter_readings = ?,  date_of_entry = ?)",
-      [personalAccount, counterReading, sentData]
+    return this.recordsDatebase.query(
+      "INSERT INTO records(personal_account, counter_readings,  date_of_entry) VALUES (?, ?, ?)",
+      [personalAccount, counterReading, sentData],
+      (error) => {
+        if (error) return error;
+      }
     );
   }
 
   async updateRecords(personalAccount, counterReading, sentData) {
-    await this.recordsDatebase.query(
+    return this.recordsDatebase.query(
       "UPDATE records SET counter_readings = ?,  date_of_entry = ? WHERE (personal_account = ?)",
-      [personalAccount, counterReading, sentData]
+      [counterReading, sentData, personalAccount],
+      (error) => {
+        if (error) return error;
+      }
     );
   }
 }

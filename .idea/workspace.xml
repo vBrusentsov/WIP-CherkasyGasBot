@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e36bf30e-9911-4057-ba0f-1dcf95471f0c" name="Changes" comment="feat: add session boilerplate">
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TelegramBotForRequestIndicators.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TelegramBotForRequestIndicators.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
@@ -29,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="feature/addition-keyboards-for-telegram-bot" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,7 +48,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;16.15.1&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.11.60&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;16.18.3&quot;,
     &quot;last_opened_file_path&quot;: &quot;E:/ (1)/recordscherkassygastelegrambot_records.sql&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
@@ -103,6 +101,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.index.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,6 +162,9 @@
       <workItem from="1667455228245" duration="8408000" />
       <workItem from="1667824780387" duration="6579000" />
       <workItem from="1667887023107" duration="7719000" />
+      <workItem from="1668346042228" duration="5322000" />
+      <workItem from="1668443624020" duration="10077000" />
+      <workItem from="1668622406510" duration="7750000" />
     </task>
     <task id="LOCAL-00001" summary="create telegram bot with the acceptance of a personal account">
       <created>1664951134231</created>
@@ -251,7 +257,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/feature/addition-keyboards-for-telegram-bot" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

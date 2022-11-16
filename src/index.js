@@ -1,8 +1,9 @@
 const { Bot, session, Keyboard } = require("grammy");
 const dotenv = require("dotenv");
 const path = require("path");
+const { router } = require("./routers/router");
 
-dotenv.config();
+dotenv.config(/*{path: '../.env'}*/);
 
 // const { Menu } = require('@grammyjs/menu');
 const {
@@ -50,16 +51,12 @@ const { RecordsService } = require("./services/records.service");
 
   bot.use(
     session({
-      initial: () => [{ personalAccountID: 0 }],
-      storage: await PsqlAdapter.create({ tableName: "sessions", client }),
+      initial: () => ({
+        step: "idle",
+        personalAccountID: 0,
+      }),
+      // storage: await PsqlAdapter.create({ tableName: "sessions", client }),
     })
-  );
-  bot.use(conversations());
-  bot.use(
-    createConversation(
-      consumersConversation(consumersService, recordsService),
-      "consumersConversationID"
-    )
   );
   const keyboard = new Keyboard().text("Передати показник лічильника");
   bot.command("start", async (ctx) => {
@@ -71,11 +68,15 @@ const { RecordsService } = require("./services/records.service");
     );
   });
   bot.hears(/.*Передати показник лічильника*./, async (ctx) => {
-    console.log("before");
-    await ctx.conversation.enter("consumersConversationID");
+    if (ctx.session.personalAccountID === 0) {
+      ctx.session.step = "postPersonalAccount"
+    } else {
+      ctx.session.step = "counterReading"
+    }
   });
   // bot.command("postPersonalAccount", async (ctx) => {
   //   await ctx.conversation.enter("consumersConversationID");
   // });
+  bot.use(router);
   bot.start();
 })();

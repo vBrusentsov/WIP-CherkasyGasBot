@@ -1,9 +1,12 @@
 const { Bot, session, Keyboard } = require("grammy");
 const dotenv = require("dotenv");
 const path = require("path");
-const { router } = require("./routers/router");
+const {
+  router,
+  routersCommunication,
+} = require("./routers/communication.router");
 
-dotenv.config(/*{path: '../.env'}*/);
+dotenv.config(/* {path: '../.env'} */);
 
 // const { Menu } = require('@grammyjs/menu');
 const {
@@ -12,9 +15,7 @@ const {
 } = require("@grammyjs/conversations");
 const { PsqlAdapter } = require("@grammyjs/storage-psql");
 const { Client } = require("pg");
-const {
-  consumersConversation,
-} = require("./conversation/consumers.conversation");
+
 const { DatabaseService } = require("./services/database.service");
 const { ConsumersService } = require("./services/сonsumers.service");
 const { RecordsService } = require("./services/records.service");
@@ -46,8 +47,9 @@ const { RecordsService } = require("./services/records.service");
   await recordsDatabaseService.init();
   const consumersService = new ConsumersService(consumersDatabaseService);
   const recordsService = new RecordsService(recordsDatabaseService);
-
   await client.connect();
+
+  routersCommunication(consumersService, recordsService);
 
   bot.use(
     session({
@@ -69,9 +71,11 @@ const { RecordsService } = require("./services/records.service");
   });
   bot.hears(/.*Передати показник лічильника*./, async (ctx) => {
     if (ctx.session.personalAccountID === 0) {
-      ctx.session.step = "postPersonalAccount"
+      ctx.session.step = "postPersonalAccount";
+      await ctx.reply("Введіть ваш особовий рахунок");
     } else {
-      ctx.session.step = "counterReading"
+      ctx.session.step = "counterReading";
+      await ctx.reply("Введіть ваш показник лічильника");
     }
   });
   // bot.command("postPersonalAccount", async (ctx) => {
